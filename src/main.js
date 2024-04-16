@@ -1,4 +1,9 @@
-import { allCase, searchBtn, searchBar } from './js/render-functions';
+import {
+  allCase,
+  searchBtn,
+  searchBar,
+  searchForm,
+} from './js/render-functions';
 
 import { API_KEY } from './js/pixabay-api';
 import iziToast from 'izitoast';
@@ -52,7 +57,8 @@ function displayImages(data) {
   lightbox.refresh();
 }
 
-searchBtn.addEventListener('click', () => {
+searchForm.addEventListener('submit', event => {
+  event.preventDefault();
   const query = searchBar.value.trim();
   if (query === '') {
     iziToast.warning({
@@ -71,7 +77,7 @@ searchBtn.addEventListener('click', () => {
     safesearch: true,
   });
 
-  // Виконуємо запит на Pixabay API з новими параметрами пошуку
+  // Perform a request to Pixabay API with the new search parameters
   fetch(`https://pixabay.com/api/?${searchParams}`)
     .then(response => {
       if (!response.ok) {
