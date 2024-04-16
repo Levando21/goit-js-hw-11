@@ -77,7 +77,6 @@ searchForm.addEventListener('submit', event => {
     safesearch: true,
   });
 
-  // Perform a request to Pixabay API with the new search parameters
   fetch(`https://pixabay.com/api/?${searchParams}`)
     .then(response => {
       if (!response.ok) {
