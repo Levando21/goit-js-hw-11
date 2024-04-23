@@ -18,7 +18,7 @@ allCase.style.gap = '20px';
 const gallery = document.querySelector('.gallery');
 const lightbox = new SimpleLightbox('.gallery a');
 function clearGallery() {
-  gallery.innerHTML = '';
+  selectors.container.innerHTML = '';
 }
 function displayImages(data) {
   clearGallery();
